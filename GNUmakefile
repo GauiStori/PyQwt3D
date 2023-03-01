@@ -3,7 +3,7 @@
 # There are at least two options to log the output of make:
 #
 # (1) Invoke make and tie stderr to stdout and redirect stdout to LOG.txt:
-#       make all-static 2&>1 >LOG.txt
+#       make all-static 2>&1 >LOG.txt
 #     However, you do not see what is going on.
 #
 # (2) Use script to capture all screen output of make to LOG.txt:
