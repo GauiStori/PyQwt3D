@@ -1,0 +1,17 @@
+# Specify the build system.
+[build-system]
+requires = ["sip >=6.0.2, <7", "PyQt-builder >=1.6, <2"]
+build-backend = "sipbuild.api"
+module-disabled-features = ["HAS_QT3","HAS_QT4","HAS_QT6"]
+
+# Specify the PEP 566 metadata for the project.
+[tool.sip.metadata]
+name = "PyQwt3D"
+version = "1.8.0"
+summary = "Python bindings for the QwtPlot3D plotting widgets"
+home-page = "https://github.com/GauiStori/PyQwt3D"
+author = "Gerard Vermeulen, Gudjon I. Gudjonsson"
+author-email = "gudon@gudon.org"
+license = "GPL v2"
+description-file = "README"
+requires-dist = "PyQt5 (>=5.15.4)"

@@ -1,0 +1,80 @@
+#!/usr/bin/env python
+#
+# Generate the SIP specification files for C++ templates.
+
+
+import os
+
+STD_VECTOR_BASE = open('STD_VECTOR_BASE').read()
+STD_VECTOR_USER = open('STD_VECTOR_USER').read()
+
+file = open('qwt3d_axisvector.sip', 'w')
+print >> file, STD_VECTOR_USER % {
+    'HEAD': ('\n#include <vector>'
+             '\n#include <qwt3d_axis.h>'          
+             '\nusing namespace Qwt3D;'
+             '\ntypedef std::vector<Axis> AxisVector;'
+             ),
+    'ITEM': 'Axis',
+    'VECTOR': 'AxisVector',
+    }
+
+file = open('qwt3d_cell.sip', 'w')
+print >> file, STD_VECTOR_BASE % {
+    'HEAD': ('\n#include <qwt3d_types.h>'          
+             '\nusing namespace Qwt3D;'
+             ),
+    'ITEM': 'size_t',
+    'VECTOR': 'Cell',
+    }
+
+file = open('qwt3d_cellfield.sip', 'w')
+print >> file, STD_VECTOR_USER % {
+    'HEAD': ('\n#include <qwt3d_types.h>'          
+             '\nusing namespace Qwt3D;'
+             ),
+    'ITEM': 'Cell',
+    'VECTOR': 'CellField',
+    }
+
+file = open('qwt3d_colorvector.sip', 'w')
+print >> file, STD_VECTOR_USER % {
+    'HEAD': ('\n#include <qwt3d_color.h>'          
+             '\nusing namespace Qwt3D;'
+             ),
+    'ITEM': 'RGBA',
+    'VECTOR': 'ColorVector',
+    }
+
+file = open('qwt3d_doublevector.sip', 'w')
+print >> file, STD_VECTOR_BASE % {
+    'HEAD': ('\n#include <vector>'          
+             '\ntypedef std::vector<double> DoubleVector;'
+             ),
+    'ITEM': 'double',
+    'VECTOR': 'DoubleVector',
+    }
+
+file = open('qwt3d_freevectorfield.sip', 'w')
+print >> file, STD_VECTOR_USER % {
+    'HEAD': ('\n#include <qwt3d_types.h>'
+             '\n#include <sip_Qwt3DFreeVector.h>'          
+             '\nusing namespace Qwt3D;'
+             ),
+    'ITEM': 'FreeVector',
+    'VECTOR': 'FreeVectorField',
+    }
+
+file = open('qwt3d_triplefield.sip', 'w')
+print >> file, STD_VECTOR_USER % {
+    'HEAD': ('\n#include <qwt3d_types.h>'
+             '\n#include <sip_Qwt3DTriple.h>'          
+             '\nusing namespace Qwt3D;'
+             ),
+    'ITEM': 'Triple',
+    'VECTOR': 'TripleField',
+    }
+
+# Local Variables: ***
+# mode: python ***
+# End: ***
